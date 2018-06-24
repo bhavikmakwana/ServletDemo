@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/angular/angular.min.js"></script>
+ <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 <title>Home</title>
 </head>
-<body>
+<body ng-controller="myController">
 <h1>This is welcome file </h1>
 <form action="./welcome">
 	<label>Name : </label>
-	<input type="text" name="name" id="name">
+	<input type="text" name="name" id="name" ng-init="Bhavik" ng-model="name">
 </form>
 </body>
 </html>
