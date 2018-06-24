@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -13,6 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.xml.internal.bind.CycleRecoverable.Context;
 
 /**
  * Servlet implementation class LoginController
@@ -32,6 +35,7 @@ public class Welcome extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	public String param1;
 	public String param2;
+	public String contextvalue ;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -60,7 +64,9 @@ public class Welcome extends HttpServlet{
 		// TODO Auto-generated method stub
 		System.out.println("This is init ServletConfig  -> "+config.getInitParameter("name"));
 		param1 = config.getInitParameter("ConfigParam1");
-		param2 = config.getInitParameter("ConfigParam2");	
+		param2 = config.getInitParameter("ConfigParam2");
+		ServletContext scxt = config.getServletContext();
+		contextvalue = scxt.getInitParameter("name");
 	}
 
 	@Override
@@ -71,9 +77,17 @@ public class Welcome extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		out.println("Welcome "+name);
-		out.println("This Config value -> "+getServletConfig());
-		out.println("Param1 -> "+param1);
-		out.println("Param2 -> "+param2);
+		out.println("</br>This Config value -> "+getServletConfig());
+		out.println("</br>Param1 -> "+param1);
+		out.println("</br>Param2 -> "+param2);
+
+/*		//creating ServletContext object  
+		ServletContext context=getServletContext();  
+		  
+		//Getting the value of the initialization parameter and printing it  
+		String name1=context.getInitParameter("name");  
+*/		out.println("<br>driver name is="+contextvalue);  
+		out.println();
 		
 	}
 }
