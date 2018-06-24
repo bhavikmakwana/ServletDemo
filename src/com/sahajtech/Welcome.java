@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet(description = "This is the Welcome Servlet", urlPatterns = { "/wlcome" })
+@WebServlet(description = "This is the Welcome Servlet", urlPatterns = { "/welcome" })
 public class Welcome implements Servlet{
 	private static final long serialVersionUID = 1L;
        

@@ -3,6 +3,6 @@
 		<servlet-class>com.sahajtech.</servlet-class>
 	</servlet> -->
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/views/index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
